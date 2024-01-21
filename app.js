@@ -1,10 +1,9 @@
+let boardContainer = document.querySelector('.game-container');
+let cells = document.querySelector('.test');  
 
 
 //Gameboard array an module function //
 const GameBoard = (() => {
-  let boardContainer = document.querySelector('.game-container');
-  let cells = document.querySelector('.test');  
-  
   })
   
 
@@ -108,6 +107,7 @@ for(let item of WINNING_INDEX_CONFIGURATIONS){
         let winningSymbol = cells1[item[0]].textContent;
         console.log(winningSymbol, ' is the winner');
         winnerText.textContent = winningSymbol + " is the winner "
+        boardContainer.style.display = "none"
         return;
     }
 
@@ -134,6 +134,7 @@ return matchCount
     
     if(!availableMoves.length){
     winnerText.textContent = "Its a tie";  
+    boardContainer.style.display = "none"
     }
 
     
@@ -147,6 +148,7 @@ return matchCount
       for(let i = 0; i < cells.length; i++){
         cells[i].textContent = ""
         textWinner.textContent = ""
+        boardContainer.style.display = "flex";
       }
     }
 
